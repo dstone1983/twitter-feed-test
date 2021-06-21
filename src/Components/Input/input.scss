@@ -1,0 +1,24 @@
+.input-container {
+  position: relative;
+  input {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 10px;
+    &:focus {
+      border: 1px solid #aaa
+    }
+  }
+  svg {
+    position: absolute;
+    top: 18%;
+    font-size: 1em;
+    left: 10px;
+    fill: #ccc;
+    color: #ccc;
+  }
+  &.hasIcon {
+    input {
+      padding-left: 35px;
+    }
+  }
+}

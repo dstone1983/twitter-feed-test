@@ -1,0 +1,41 @@
+.hash-filters {
+  background: #fff;
+  -webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.25);
+  box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.25);
+  padding: 15px;
+  margin-left: 10px;
+  min-width: 25%;
+  max-width: 300px;
+  h1 {
+    margin-top: 0;
+  }
+  .tweet-hash-list {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    button {
+      width: auto;
+      font-size: 1em;
+      font-weight: normal;
+      margin-right: 10px;
+      display: inline-block;
+      padding: 5px 20px;
+      border: none;
+      margin-bottom: 10px;
+      cursor: pointer;
+      background: #e7f3fa;
+      border-radius: 20px;
+      color: #689cc8
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hash-filters {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-bottom: 20px;
+  }
+}
