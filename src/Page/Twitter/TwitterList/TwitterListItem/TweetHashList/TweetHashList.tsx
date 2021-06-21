@@ -1,7 +1,13 @@
 import {HashTags} from "../../../../../store/twitter/reducer";
 import './TweetHashList.scss'
+import {FunctionComponent} from "react";
 
-const TweetHashList = ({hashtags, setCurrentSearch}: {hashtags: HashTags[], setCurrentSearch: (search: string) => any}) => {
+export interface HashList {
+    hashtags: HashTags[]
+    setCurrentSearch: (search: string) => any
+}
+
+const TweetHashList: FunctionComponent<HashList> = ({hashtags, setCurrentSearch}: HashList) => {
     return (
         <div className="tweet-hash-list">
             {

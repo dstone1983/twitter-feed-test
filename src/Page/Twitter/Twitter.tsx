@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {FunctionComponent, useEffect, useState} from 'react';
 import './Twitter.scss'
 import Input from "../../Components/Input/Input";
 import {faSearch} from "@fortawesome/free-solid-svg-icons/faSearch";
@@ -9,11 +9,10 @@ import TwitterList from "./TwitterList/TwitterList";
 import HashTagFilters from "./HashTagFilters/HashTagFilters";
 import useWindowSize from "../../Hooks/resize";
 
-const Twitter = () => {
+const Twitter: FunctionComponent = () => {
     const queryString = new URLSearchParams(window.location.search)
     const searchQuery = queryString.get('q') || ''
     const size = useWindowSize()
-    console.log(size)
     const dispatch = useDispatch()
     const hashTags = useSelector(state => getHashtags(state))
     const nextUrl = useSelector(state => getNextResultUrl(state))
@@ -48,10 +47,10 @@ const Twitter = () => {
             <div className="twitter-feed">
                 <div className="feed-results">
                     <Input callback={setSearch} iconName={faSearch} placeholder="Search by keyword" defaultValue={currentSearch} />
-                    {(hashTags.length > 0 && size[0] <= 768) && <HashTagFilters hashTags={hashTags} setCurrentSearch={setCurrentSearch} />}
+                    {(hashTags.length > 0 && size[0] <= 768) && <HashTagFilters hashtags={hashTags} setCurrentSearch={setCurrentSearch} />}
                     <TwitterList loadMore={loadMore} setCurrentSearch={setCurrentSearch} />
                 </div>
-                {(hashTags.length > 0 && size[0] > 768) && <HashTagFilters hashTags={hashTags} setCurrentSearch={setCurrentSearch} />}
+                {(hashTags.length > 0 && size[0] > 768) && <HashTagFilters hashtags={hashTags} setCurrentSearch={setCurrentSearch} />}
             </div>
         </div>
     );

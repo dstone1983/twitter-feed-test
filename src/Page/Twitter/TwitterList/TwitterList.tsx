@@ -3,8 +3,14 @@ import {getTweets} from "../../../store/twitter/selectors";
 import {Tweets} from "../../../store/twitter/reducer";
 import TwitterListItem from "./TwitterListItem/TwitterListItem";
 import './TwitterList.scss'
+import {FunctionComponent} from "react";
 
-const TwitterList = ({loadMore, setCurrentSearch}: {loadMore: () => void, setCurrentSearch: (search: string) => any}) => {
+export interface TwitterListTypes {
+    loadMore: () => void
+    setCurrentSearch: (search: string) => any
+}
+
+const TwitterList: FunctionComponent<TwitterListTypes> = ({loadMore, setCurrentSearch}: TwitterListTypes) => {
     const tweets: Tweets[] = useSelector(state => getTweets(state))
 
     return (

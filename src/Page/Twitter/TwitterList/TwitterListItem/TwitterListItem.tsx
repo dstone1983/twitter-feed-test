@@ -3,8 +3,14 @@ import Autolinker from 'autolinker';
 import parse from 'html-react-parser';
 import './TwitterListItem.scss'
 import TweetHashList from "./TweetHashList/TweetHashList"
+import {FunctionComponent} from "react";
 
-const TwitterListItem = ({tweet, setCurrentSearch}: {tweet: Tweets, setCurrentSearch: (search: string) => any}) => {
+interface ListItemType {
+    tweet: Tweets
+    setCurrentSearch: (search: string) => any
+}
+
+const TwitterListItem: FunctionComponent<ListItemType> = ({tweet, setCurrentSearch}: ListItemType) => {
     const {full_text, entities: {hashtags}, user: {url, screen_name}} = tweet
     const contentText = parse(Autolinker.link(full_text, {
         replaceFn: (match: any) => {
